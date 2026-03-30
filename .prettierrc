@@ -1,0 +1,29 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "typescript",
+      "tsconfig": "apps/backend/tsconfig.json",
+      "option": "watch",
+      "problemMatcher": ["$tsc-watch"],
+      "group": "build",
+      "label": "tsc: watch - apps/backend/tsconfig.json"
+    },
+    {
+      "type": "npm",
+      "script": "dev",
+      "path": "apps/backend",
+      "problemMatcher": [],
+      "label": "npm: dev - apps/backend",
+      "detail": "ts-node-dev --respawn --transpile-only src/index.ts"
+    },
+    {
+      "type": "npm",
+      "script": "dev",
+      "path": "apps/frontend",
+      "problemMatcher": [],
+      "label": "npm: dev - apps/frontend",
+      "detail": "next dev"
+    }
+  ]
+}

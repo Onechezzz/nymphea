@@ -1,0 +1,8 @@
+# Backend Environment Variables
+DATABASE_URL=postgresql://postgres:postgres@localhost:5432/aroma
+JWT_SECRET=your_very_long_secret_key_at_least_32_characters_change_in_production
+PORT=3001
+NODE_ENV=development
+
+# Frontend Environment Variables
+NEXT_PUBLIC_API_URL=http://localhost:3001
