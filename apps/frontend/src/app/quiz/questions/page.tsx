@@ -37,7 +37,7 @@ function emptyAcc(): Accumulator {
   return { facetSums: {}, facetCounts: {}, vibeSums: {}, vibeCounts: {}, tagCounts: {} };
 }
 
-function addToAcc(prev: Accumulator, facets: Record<string, number>, vibe: Record<string, number>, tags: string[]): Accumulator {
+function addToAcc(prev: Accumulator, facets: Partial<Record<string, number>>, vibe: Partial<Record<string, number>>, tags: string[]): Accumulator {
   const next: Accumulator = {
     facetSums: { ...prev.facetSums },
     facetCounts: { ...prev.facetCounts },
@@ -46,10 +46,12 @@ function addToAcc(prev: Accumulator, facets: Record<string, number>, vibe: Recor
     tagCounts: { ...prev.tagCounts },
   };
   Object.entries(facets).forEach(([k, v]) => {
+    if (v === undefined) return;
     next.facetSums[k] = (next.facetSums[k] || 0) + v;
     next.facetCounts[k] = (next.facetCounts[k] || 0) + 1;
   });
   Object.entries(vibe).forEach(([k, v]) => {
+    if (v === undefined) return;
     next.vibeSums[k] = (next.vibeSums[k] || 0) + v;
     next.vibeCounts[k] = (next.vibeCounts[k] || 0) + 1;
   });
