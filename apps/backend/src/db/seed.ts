@@ -721,6 +721,9 @@ export const seedData = async () => {
     console.log('\nTest credentials:');
     console.log('  Email: admin@aroma.com');
     console.log('  Password: admin123');
+  } catch (error) {
+    console.error('Seeding failed:', error);
+    throw error;
   }
 };
 
