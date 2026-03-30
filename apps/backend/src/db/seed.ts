@@ -2,7 +2,7 @@ import pool from './index';
 import bcrypt from 'bcryptjs';
 import { Gender, QuizType } from '@aroma/shared-types';
 
-const seedData = async () => {
+export const seedData = async () => {
   try {
     console.log('Starting database seeding...');
 
@@ -721,14 +721,11 @@ const seedData = async () => {
     console.log('\nTest credentials:');
     console.log('  Email: admin@aroma.com');
     console.log('  Password: admin123');
-
-    process.exit(0);
-  } catch (error) {
-    console.error('Seeding failed:', error);
-    process.exit(1);
   }
 };
 
 if (require.main === module) {
-  seedData();
+  seedData()
+    .then(() => process.exit(0))
+    .catch((err) => { console.error('Seeding failed:', err); process.exit(1); });
 }

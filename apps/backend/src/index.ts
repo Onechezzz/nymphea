@@ -5,6 +5,8 @@ import authRoutes from './routes/auth';
 import aromasRoutes from './routes/aromas';
 import publicRoutes from './routes/public';
 import { createTables } from './db/migrate';
+import { seedData } from './db/seed';
+import pool from './db/index';
 
 dotenv.config();
 
@@ -31,8 +33,15 @@ app.use((err: any, req: express.Request, res: express.Response, next: express.Ne
   res.status(500).json({ error: 'Something went wrong!' });
 });
 
-// Run migrations then start server
+// Run migrations, seed if empty, then start server
 createTables()
+  .then(async () => {
+    const { rows } = await pool.query('SELECT COUNT(*) FROM users');
+    if (parseInt(rows[0].count, 10) === 0) {
+      console.log('Empty database detected, running seed...');
+      await seedData();
+    }
+  })
   .then(() => {
     app.listen(PORT, () => {
       console.log(`🚀 Backend server running on http://localhost:${PORT}`);
@@ -40,6 +49,6 @@ createTables()
     });
   })
   .catch((err) => {
-    console.error('Failed to run migrations:', err);
+    console.error('Failed to start server:', err);
     process.exit(1);
   });
