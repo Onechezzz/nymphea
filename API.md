@@ -24,6 +24,7 @@ Authorization: Bearer <token>
 Авторизація користувача
 
 **Request:**
+
 ```json
 {
   "email": "admin@aroma.com",
@@ -32,6 +33,7 @@ Authorization: Bearer <token>
 ```
 
 **Response:**
+
 ```json
 {
   "user": {
@@ -50,6 +52,7 @@ Authorization: Bearer <token>
 Отримання поточного користувача (потребує auth)
 
 **Response:**
+
 ```json
 {
   "id": "uuid",
@@ -67,12 +70,14 @@ Authorization: Bearer <token>
 Отримання списку ароматів
 
 **Query Parameters:**
+
 - `search` (optional): Пошук по бренду або назві
 - `gender` (optional): Фільтр по типу (male/female/unisex)
 - `sortBy` (optional): Поле сортування (default: created_at)
 - `order` (optional): Порядок (ASC/DESC, default: DESC)
 
 **Response:**
+
 ```json
 [
   {
@@ -118,6 +123,7 @@ Authorization: Bearer <token>
 Створення нового аромату
 
 **Request:**
+
 ```json
 {
   "brand": "Dior",
@@ -173,6 +179,7 @@ Authorization: Bearer <token>
 Видалення аромату
 
 **Response:**
+
 ```json
 {
   "message": "Aroma deleted successfully"
@@ -186,6 +193,7 @@ Authorization: Bearer <token>
 **Request:** Масив ароматів
 
 **Response:**
+
 ```json
 {
   "message": "Imported 5 aromas",
@@ -208,6 +216,7 @@ Authorization: Bearer <token>
 Отримання всіх даних для offline режиму (не потребує auth)
 
 **Response:**
+
 ```json
 {
   "aromas": [...],
@@ -222,6 +231,7 @@ Authorization: Bearer <token>
 Відправка відповідей квізу (не потребує auth)
 
 **Request:**
+
 ```json
 {
   "gender": "female",
@@ -239,6 +249,7 @@ Authorization: Bearer <token>
 ```
 
 **Response:**
+
 ```json
 {
   "profile": {
@@ -277,6 +288,7 @@ Authorization: Bearer <token>
 Всі endpoints можуть повернути помилки:
 
 ### 400 Bad Request
+
 ```json
 {
   "error": "Invalid input",
@@ -285,6 +297,7 @@ Authorization: Bearer <token>
 ```
 
 ### 401 Unauthorized
+
 ```json
 {
   "error": "Access token required"
@@ -292,6 +305,7 @@ Authorization: Bearer <token>
 ```
 
 ### 403 Forbidden
+
 ```json
 {
   "error": "Invalid or expired token"
@@ -299,6 +313,7 @@ Authorization: Bearer <token>
 ```
 
 ### 404 Not Found
+
 ```json
 {
   "error": "Resource not found"
@@ -306,6 +321,7 @@ Authorization: Bearer <token>
 ```
 
 ### 500 Internal Server Error
+
 ```json
 {
   "error": "Internal server error"
@@ -317,5 +333,6 @@ Authorization: Bearer <token>
 ## Rate Limiting
 
 В production рекомендується додати rate limiting:
+
 - 100 requests/minute для auth endpoints
 - 1000 requests/minute для інших endpoints
