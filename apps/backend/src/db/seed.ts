@@ -721,7 +721,7 @@ const seedData = async () => {
     console.log('\nTest credentials:');
     console.log('  Email: admin@aroma.com');
     console.log('  Password: admin123');
-    
+
     process.exit(0);
   } catch (error) {
     console.error('Seeding failed:', error);
@@ -729,4 +729,6 @@ const seedData = async () => {
   }
 };
 
-seedData();
+if (require.main === module) {
+  seedData();
+}

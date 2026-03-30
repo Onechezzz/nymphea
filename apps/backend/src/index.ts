@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import authRoutes from './routes/auth';
 import aromasRoutes from './routes/aromas';
 import publicRoutes from './routes/public';
+import { createTables } from './db/migrate';
 
 dotenv.config();
 
@@ -30,8 +31,15 @@ app.use((err: any, req: express.Request, res: express.Response, next: express.Ne
   res.status(500).json({ error: 'Something went wrong!' });
 });
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`🚀 Backend server running on http://localhost:${PORT}`);
-  console.log(`📊 Health check: http://localhost:${PORT}/health`);
-});
+// Run migrations then start server
+createTables()
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`🚀 Backend server running on http://localhost:${PORT}`);
+      console.log(`📊 Health check: http://localhost:${PORT}/health`);
+    });
+  })
+  .catch((err) => {
+    console.error('Failed to run migrations:', err);
+    process.exit(1);
+  });
