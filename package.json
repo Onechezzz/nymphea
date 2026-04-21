@@ -8,7 +8,8 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev": "npm run build:packages && concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "build:packages": "npm run build --workspace=@aroma/shared-types && npm run build --workspace=@aroma/matching-engine",
     "dev:backend": "npm run dev --workspace=backend",
     "dev:frontend": "npm run dev --workspace=frontend",
     "build": "npm run build --workspaces",

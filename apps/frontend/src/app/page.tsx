@@ -256,13 +256,7 @@ export default function HomePage() {
       <header className="top-header">
         <div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/nymphea-logo.png"
-            alt="NYMPHEA"
-            width={50}
-            height={50}
-            style={{ filter: "invert(1)", mixBlendMode: "screen", opacity: 0.9, display: "block" }}
-          />
+          <img src="/nymphea-logo.png" alt="NYMPHEA" width={120} height={120} style={{ opacity: 0.9, display: "block" }} />
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
           {showBubble && (
@@ -351,7 +345,14 @@ export default function HomePage() {
                 <path d="M4,13 C24,3 50,3 66,13" stroke="#050d07" strokeWidth="7" strokeLinecap="round" />
                 <path d="M62,5 L74,13 L62,21" stroke="#050d07" strokeWidth="6.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                 <path d="M4,13 C24,3 50,3 66,13" stroke="rgba(255,255,255,0.82)" strokeWidth="3.5" strokeLinecap="round" />
-                <path d="M62,5 L74,13 L62,21" stroke="rgba(255,255,255,0.88)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                <path
+                  d="M62,5 L74,13 L62,21"
+                  stroke="rgba(255,255,255,0.88)"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
               </svg>
             </div>
           )}
@@ -374,13 +375,7 @@ export default function HomePage() {
           {/* Logo + Tagline */}
           <div style={{ textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", gap: "6px" }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/nymphea-logo.png"
-              alt="NYMPHEA"
-              width={120}
-              height={120}
-              style={{ filter: "invert(1)", mixBlendMode: "screen", opacity: 0.9 }}
-            />
+            <img src="/nymphea-logo.png" alt="NYMPHEA" width={240} height={240} style={{ opacity: 0.9 }} />
             <p
               style={{ fontSize: "0.65rem", letterSpacing: "0.3em", color: "rgba(158,189,156,0.7)", textTransform: "uppercase", margin: 0 }}
             >
@@ -578,7 +573,14 @@ export default function HomePage() {
                 <path d="M70,13 C50,3 24,3 8,13" stroke="#050d07" strokeWidth="7" strokeLinecap="round" />
                 <path d="M12,5 L0,13 L12,21" stroke="#050d07" strokeWidth="6.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                 <path d="M70,13 C50,3 24,3 8,13" stroke="rgba(255,255,255,0.82)" strokeWidth="3.5" strokeLinecap="round" />
-                <path d="M12,5 L0,13 L12,21" stroke="rgba(255,255,255,0.88)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                <path
+                  d="M12,5 L0,13 L12,21"
+                  stroke="rgba(255,255,255,0.88)"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
               </svg>
             </div>
           )}

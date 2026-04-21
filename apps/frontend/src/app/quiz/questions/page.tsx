@@ -37,7 +37,12 @@ function emptyAcc(): Accumulator {
   return { facetSums: {}, facetCounts: {}, vibeSums: {}, vibeCounts: {}, tagCounts: {} };
 }
 
-function addToAcc(prev: Accumulator, facets: Partial<Record<string, number>>, vibe: Partial<Record<string, number>>, tags: string[]): Accumulator {
+function addToAcc(
+  prev: Accumulator,
+  facets: Partial<Record<string, number>>,
+  vibe: Partial<Record<string, number>>,
+  tags: string[],
+): Accumulator {
   const next: Accumulator = {
     facetSums: { ...prev.facetSums },
     facetCounts: { ...prev.facetCounts },
@@ -368,13 +373,7 @@ function QuizContent() {
         </button>
         <div style={{ textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", gap: "2px" }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/nymphea-logo.png"
-            alt="NYMPHEA"
-            width={30}
-            height={30}
-            style={{ filter: "invert(1)", mixBlendMode: "screen", opacity: 0.8 }}
-          />
+          <img src="/nymphea-logo.png" alt="NYMPHEA" width={120} height={120} style={{ opacity: 0.8 }} />
           <span style={{ fontSize: "0.7rem", letterSpacing: "0.15em", color: "rgba(247,165,205,0.7)", fontWeight: 600 }}>
             {currentIndex + 1} / {questions.length}
           </span>
@@ -445,7 +444,14 @@ function QuizContent() {
                 <path d="M4,13 C24,3 50,3 66,13" stroke="#050d07" strokeWidth="7" strokeLinecap="round" />
                 <path d="M62,5 L74,13 L62,21" stroke="#050d07" strokeWidth="6.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                 <path d="M4,13 C24,3 50,3 66,13" stroke="rgba(255,255,255,0.82)" strokeWidth="3.5" strokeLinecap="round" />
-                <path d="M62,5 L74,13 L62,21" stroke="rgba(255,255,255,0.88)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                <path
+                  d="M62,5 L74,13 L62,21"
+                  stroke="rgba(255,255,255,0.88)"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
               </svg>
             </div>
           )}
@@ -570,7 +576,14 @@ function QuizContent() {
                 <path d="M70,13 C50,3 24,3 8,13" stroke="#050d07" strokeWidth="7" strokeLinecap="round" />
                 <path d="M12,5 L0,13 L12,21" stroke="#050d07" strokeWidth="6.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                 <path d="M70,13 C50,3 24,3 8,13" stroke="rgba(255,255,255,0.82)" strokeWidth="3.5" strokeLinecap="round" />
-                <path d="M12,5 L0,13 L12,21" stroke="rgba(255,255,255,0.88)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                <path
+                  d="M12,5 L0,13 L12,21"
+                  stroke="rgba(255,255,255,0.88)"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
               </svg>
             </div>
           )}
