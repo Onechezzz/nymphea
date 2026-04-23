@@ -12,12 +12,12 @@ interface AvatarProps {
 
 const VIDEOS: Record<'male' | 'female', { idle: string; action: string }> = {
   female: {
-    idle: '/videos/avatars/female/girl_idle_1.mov',
-    action: '/videos/avatars/female/girl_action_2.mov',
+    idle: '/videos/avatars/female/girl_idle_1.mp4',
+    action: '/videos/avatars/female/girl_action_1.mp4',
   },
   male: {
-    idle: '/videos/avatars/male/man_Idle_1.mov',
-    action: '/videos/avatars/male/man_action_2.mov',
+    idle: '/videos/avatars/male/man_idle_1.mp4',
+    action: '/videos/avatars/male/man_action_1.mp4',
   },
 };
 
